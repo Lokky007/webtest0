@@ -246,8 +246,9 @@ def upload():
             spatna.append('Null')
 
         spatna = [unicode(i) for i in spatna]   # prevede polozky seznamu na UNICODE
-        Otazka(ucitel=ucitel, jmeno=nazev_otazky, typ_otazky=typ, obecne_zadani='10',
-                spravna_odpoved=spravna, spatna_odpoved1=spatna[0], 
+        Otazka(ucitel=ucitel, jmeno=nazev_otazky, typ_otazky=typ, 
+                obecne_zadani='10', spravna_odpoved=spravna, 
+                spatna_odpoved1=spatna[0], 
                 spatna_odpoved2=spatna[1], spatna_odpoved3=spatna[2],
                 spatna_odpoved4=spatna[3], spatna_odpoved5=spatna[4],
                 spatna_odpoved6=spatna[5]) # Obecne_zadani nastaveno perma na 10
@@ -281,7 +282,7 @@ def upload():
                     else:
                         otazka = otazka + line
                 else:  # kdyz je mezera(oddeleni otazek), udelej zapis do DB
-                    if nazev_otazky and otazka:  #ignoruj 1.mezeru(a nekor. otazky) 
+                    if nazev_otazky and otazka:  #ignoruj 1.mezeru či  nekor. otazky 
                         add(typ, nazev_otazky,cislo, otazka, spravna, spatna)
                     typ = nazev_otazky = cislo = otazka = spravna = "" # vynuluj
                     spatna = []
