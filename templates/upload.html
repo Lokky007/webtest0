@@ -1,0 +1,50 @@
+{% extends "ucitel.html" %}
+
+{% block main %}
+<article>
+  <h1>Upload</h1>
+
+  <p>Na tomto místě můžete hromadně vložit několik úloh nebo celý test.
+  Formát souboru viz příklad uvedený pod formulářem.</p>
+
+  <h2>Vybrat  a odeslat soubor</h2>
+
+  <form enctype="multipart/form-data" method="post">
+
+    <p>
+    <input type="radio" name="typ" value="otazky" checked="checked" /> 
+    Chci vložit jen testové otázky.<br />
+    <input type="radio" name="typ" value="test" />
+    Chci z těchto testových otázek vytvořit test a označit ho jménem: 
+    <input type="input" name="jmeno_testu" value="Test 123" />.
+    </p>
+
+  <p>
+  Vybrat soubor s definicí otázek: <input type="file" name="datafile" /><br />
+  <input type="submit" name="odeslat" value="Odeslat" />
+  </p>
+  </form>
+
+  <h2>Příklad</h2>
+  <pre><code>::task Dělič I.
+Vypočítejte výstupní napětí nezatíženého děliče 
+$R_1=4,2k\Omega$, $R_2=4,2k\Omega$, kde vstupní napětí $U_1=12V$.
+::close
+:- 12V
+:- -12V
+:+ 6V
+:- 0V
+
+::task Dělič II.
+Vypočítejte výstupní napětí nezatíženého děliče $R_1=4,2k\Omega$, 
+$R_2=4,2k\Omega$, kde vstupní napětí $U_1=12V$.
+::number 6,000 0,010
+
+::task Dělič III.
+Vypočítejte výstupní napětí nezatíženého děliče $R_1=4,2k\Omega$,
+$R_2=4,2k\Omega$, kde vstupní napětí $U_1=12V$.
+::open
+  </code></pre>
+
+</article>
+{% endblock main %}
